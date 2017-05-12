@@ -4,7 +4,7 @@
 <head>
 
     <meta charset="utf-8">
-    <title>Form With Signature demo</title>
+    <title>Doctor Signature</title>
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
@@ -29,7 +29,7 @@
 <body onselectstart="return false">
 
 <div class="container">
-    <h2 class="form-signin-heading">Doctor Sign test</h2>
+    <h2 class="form-signin-heading">Doctor Signature</h2>
     <form id="main-form" class="form-signin">
 
         <div class="form-group row">
@@ -119,7 +119,7 @@
 
         <br/>
         <button class="btn btn-lg btn-primary btn-block" type="button" data-action="preview">Preview</button>
-        <input class="btn btn-lg btn-danger btn-block" type='reset' value='Reset' name='reset'>
+        <input class="btn btn-lg btn-danger btn-block" type='reset' data-action="reset-form" value='Reset' name='reset'>
         <!--<button class="btn btn-lg btn-primary btn-block" type="button" data-action="save-svg">Save as SVG</button>-->
     </form>
     <hr>
@@ -129,11 +129,16 @@
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="button" data-action="save">Save</button>
     </div>
+    <hr>
+    <hr>
+    <div id="mainDataWrapper">
+        <div id="mainData">
+        </div>
+        <button class="btn btn-danger btn-block" type="button" data-action="clean-data">Clean Master Table</button>
+    </div>
 
-    <!--<br/><br/><br/><br/><br/><br/><br/>-->
-    <!--<button class="btn btn-danger btn-block" type="button" id="clean-data">C</button>-->
-</div>
-<!-- /container -->
+
+</div><!-- /container -->
 
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

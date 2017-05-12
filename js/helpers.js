@@ -39,7 +39,7 @@ function formIsValid() {
         return true;
 }
 
-function buildDataObject(){
+function buildDataObject() {
     var dataObj = {};
     dataObj.date = $('#date').val();
     dataObj.office = $('#office').val();
@@ -55,7 +55,7 @@ function buildPreview() {
 
     var dataPreview = buildDataObject();
 
-    var html = '<table class="prvTable">' +
+    var html = '<table class="table table-striped  table-bordered prvTable">' +
         '<tr>' +
         '<th>Date</th>' +
         '<td class="prvValue">' + dataPreview.date + '</td>' +
@@ -88,6 +88,52 @@ function buildPreview() {
 };
 
 function saveData(data) {
-    //TODO SaveData
-    console.log('Save',data)
+    var savedData = loadSavedData();
+    savedData.push(data);
+    localStorage.setItem("savedData", JSON.stringify(savedData));
+    console.log('Saved new data', savedData);
+};
+
+
+function loadSavedData() {
+    var savedData = localStorage.getItem('savedData');
+    savedData= JSON.parse(savedData);
+    if (savedData == null) savedData = [];
+    console.log('Saved data loaded', savedData);
+    console.log(JSON.stringify(savedData));
+    return savedData;
+};
+
+function drawSavedData(data) {
+    var html = '<table class="table table-striped mainTable">' +
+        '<thead class="thead-inverse">' +
+        '<tr>' +
+        '<th class="mainTitle">Date</th>' +
+        '<th class="mainTitle">Office</th>' +
+        '<th class="mainTitle">Name</th>' +
+        '<th>D.O.A.</th>' +
+        '<th>Test</th>' +
+        '<th>Signature</th>' +
+        '<th>Edit</th>' +
+        '</tr>' +
+        '</thead>';
+
+    for (var i=0;i<data.length;i++){
+        var row = data[i];
+        html +=
+            '<tr>' +
+            '<td class="mainTableValue">' + row.date + '</td>' +
+            '<td class="prvValue">' + row.office + '</td>' +
+            '<td class="prvValue">' + row.name + '</td>' +
+            '<td class="prvValue">' + row.doa + '</td>' +
+            '<td class="prvValue">' + row.test + '</td>' +
+            '<td class="prvSignature"><img style="width: 100px;" src="' + row.signature + '" /></td>' +
+            '<td>' +
+            '<button type="button" class="btn btn-default btn-sm">'+
+            '<span class="glyphicon glyphicon-pencil"></span> Edit </button>' +
+            '</td>' +
+            '</tr>';
+    }
+    html += '</table>';
+    return html;
 }

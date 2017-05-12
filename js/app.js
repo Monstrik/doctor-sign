@@ -27,8 +27,9 @@ resizeCanvas();
 
 $(document).ready(function () {
     $("#dataDivWrapper").hide();
-    console.log("ready!");
+    $("#mainData").html(drawSavedData(loadSavedData()));
     $("#date").val(currentDate());
+    console.log("ready!");
 });
 
 
@@ -36,11 +37,19 @@ $('[data-action=clear]').click(function () {
     signaturePad.clear();
 });
 
+$('[data-action=reset-form]').click(function () {
+    signaturePad.clear();
+    $("#dataDiv").html('');
+    $('#dataDivWrapper').hide();
+    setTimeout(function(){
+        $("#date").val(currentDate());
+    },1000)
+
+});
 
 $('[data-action=preview]').click(function () {
     if (formIsValid()) {
-        var dataDiv = document.getElementById("dataDiv")
-        dataDiv.innerHTML = buildPreview()
+        $("#dataDiv").html(buildPreview());
         $('#dataDivWrapper').show();
     }
 });
@@ -49,5 +58,14 @@ $('[data-action=preview]').click(function () {
 $('[data-action=save]').click(function () {
     if (formIsValid()) {
         saveData(buildDataObject());
+        $("#mainData").html(drawSavedData(loadSavedData()));
+        $("#dataDiv").html('');
+        $('#dataDivWrapper').hide();
     }
+});
+
+
+$('[data-action=clean-data]').click(function () {
+    localStorage.clear();
+    console.log('cleaned');
 });
