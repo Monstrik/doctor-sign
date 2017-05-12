@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <title>Form With Signature demo</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <!-- Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/signature-pad.css">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body onselectstart="return false">
+
+<div class="container">
+    <h2 class="form-signin-heading">Doctor Sign test</h2>
+    <form id="main-form" class="form-signin">
+
+        <div class="form-group row">
+            <label for="date" class="col-sm-2 col-form-label">Date</label>
+            <div class="col-sm-10">
+                <input type="date" id="date" class="form-control" required autofocus>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="office" class="col-sm-2 col-form-label">Office</label>
+            <div class="col-sm-10">
+                <select class="form-control" id="office">
+                    <option>Office 1</option>
+                    <option selected>Office 2</option>
+                    <option>Office 3</option>
+                    <option>Office 4</option>
+                    <option>Office 5</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="fullName" class="col-sm-2 col-form-label">Full Name</label>
+            <div class="col-sm-10">
+                <input type="text" id="fullName" class="form-control" placeholder="Full Name" value="Alexander Yakovis"
+                       required>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="date" class="col-sm-2 col-form-label">D.O.A.</label>
+            <div class="col-sm-10">
+                <input type="date" id="doa" class="form-control" required autofocus>
+            </div>
+        </div>
+
+
+        <!--<div class="form-group">-->
+        <!--<label for="test">Test:</label>-->
+        <!--<select class="form-control" id="test">-->
+        <!--<option>L</option>-->
+        <!--<option>C</option>-->
+        <!--</select>-->
+        <!--</div>-->
+
+        <div class="form-group row">
+            <label for="test" class="col-sm-2 col-form-label">Test</label>
+            <div id="test" class="col-sm-10">
+
+                <label class="radio-inline">
+                    <input type="radio" name="test" value="L">L
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="test" value="C">C
+                </label>
+
+            </div>
+        </div>
+
+
+        <!--<div class="checkbox">-->
+        <!--<label>-->
+        <!--<input type="checkbox" value="remember-me"> Remember me-->
+        <!--</label>-->
+        <!--</div>-->
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Please sign...</label>
+            <div class="col-sm-10">
+
+                <div id="signature-pad" class="m-signature-pad">
+                    <div class="m-signature-pad--body">
+                        <canvas></canvas>
+                    </div>
+                    <div class="m-signature-pad--footer">
+                        <button type="button" class="btn btn-block btn-default" data-action="clear">Clear Signature
+                        </button>
+                    </div>
+                    <br/>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!--<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>-->
+
+        <br/>
+        <button class="btn btn-lg btn-primary btn-block" type="button" data-action="preview">Preview</button>
+        <input class="btn btn-lg btn-danger btn-block" type='reset' value='Reset' name='reset'>
+        <!--<button class="btn btn-lg btn-primary btn-block" type="button" data-action="save-svg">Save as SVG</button>-->
+    </form>
+    <hr>
+    <hr>
+    <div id="dataDivWrapper">
+        <div id="dataDiv">
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="button" data-action="save">Save</button>
+    </div>
+
+    <!--<br/><br/><br/><br/><br/><br/><br/>-->
+    <!--<button class="btn btn-danger btn-block" type="button" id="clean-data">C</button>-->
+</div>
+<!-- /container -->
+
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+<script src="js/signature_pad.js"></script>
+<script src="js/helpers.js"></script>
+<script src="js/app.js"></script>
+</body>
+
+</html>
