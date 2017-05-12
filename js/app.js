@@ -43,7 +43,7 @@ $('[data-action=reset-form]').click(function () {
     $('#dataDivWrapper').hide();
     setTimeout(function(){
         $("#date").val(currentDate());
-    },1000)
+    },0)
 
 });
 
